@@ -44,9 +44,9 @@ export class AppComponent {
   //Append Fields Set
   private addAddressGroup(): FormGroup {
     return this._fb.group({
-      // street: [],
-      // city: [],
-      // state: []
+      street: [],
+      city: [],
+      state: []
     });
   }
   //Add Fields
