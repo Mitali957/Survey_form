@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, copyArrayItem} from '@angular/cdk/drag-drop';
 import { FormBuilder,FormGroup, FormArray,FormControl, RequiredValidator, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import {Survey}  from  "../model/Survey";
-import {Question} from "../model/Question";
+// import {Survey}  from  "../model/Survey";
+// import {Question} from "../model/Question";
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -12,13 +12,13 @@ import {Question} from "../model/Question";
 export class MainPageComponent {
  
   components = ['Text Area', 'Single Choice Question', 'Multiple Choice Question'];
-  survey = new Survey([])
-  question = new Question("", "", [])
+  // survey = new Survey([])
+  // question = new Question("", "", [])
   
-  pushInArray(option:any){
-    this.question.options.push(option.value)
-    option.value = ""
-  }
+  // pushInArray(option:any){
+  //   this.question.options.push(option.value)
+  //   option.value = ""
+  // }
 
 
   Form = [ 'Check e-mail'];
@@ -40,12 +40,12 @@ drop(event: CdkDragDrop<string[]>) {
   }
 }
 ngOnInit(){
-  this.surveyForm = this._fb.group({
-    title : ["", Validators.required],
-    email : ["", Validators.required],
-    questions: this._fb.array([])
+  // this.surveyForm = this._fb.group({
+  //   title : ["", Validators.required],
+  //   email : ["", Validators.required],
+  //   questions: this._fb.array([])
 
-  })
+  // })
 }
 public userForm: FormGroup;
   constructor(private _fb: FormBuilder) {

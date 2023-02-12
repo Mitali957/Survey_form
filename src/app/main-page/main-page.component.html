@@ -1,12 +1,7 @@
 <div cdkDropListGroup>
   <div class="example-container">
     <h2>components</h2>
-
-    <div
-      cdkDropList
-      [cdkDropListData]="components"
-      class="example-list"
-    >
+    <div cdkDropList [cdkDropListData]="components" class="example-list">
       <div class="example-box" *ngFor="let item of components" cdkDrag>
         {{ item }}
       </div>
@@ -19,64 +14,51 @@
       cdkDropList
       [cdkDropListData]="Form"
       class="example-list"
-      (cdkDropListDropped)="drop($event)"
-      [formGroup]="surveyForm">
-    >
-    <div formArrayName="questions">
-      <div *ngFor="let item of Form, let id = index" cdkDrag>
-        <!-- text area -->
-        <div *ngIf="item === 'Text Area'" >
-          <!-- <label for="">Que </label> -->
-          <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
-          <div><input type="text" placeholder="Enter Your Question" [formControlName]="item[id]" /></div>
+      (cdkDropListDropped)="drop($event)">
+
+
+      <!-- Text Area -->
+      <div *ngFor="let item of Form" cdkDrag>
+        <div *ngIf="item === 'Text Area'">
           <br />
-          <button mat-raised-button color="primary">Save</button>
-          <button class="btn btn-danger float-end mb-1" (click)="onDelete(item)">Remove button</button>
+          <form class="example-form" [formGroup]="userForm">
+            <div
+              class="address-container"
+              *ngFor="let group of addressArray.controls; let i = index"
+              formArrayName="address"
+            >
+              <div class="form-group jumbotron" [formGroupName]="i">
+                <div>
+                  <input type="text" placeholder="Enter Your Question" />
+
+                  <button
+                    *ngIf="i > 0"
+                    class="btn btn-danger float-end mb-1"
+                    (click)="removeAddress(i)"
+                  >
+                    Remove button
+                  </button>
+                </div>
+                <br />
+              </div>
+            </div>
+            <div class="form-row org-desc-parent-margin">
+              <button class="btn btn-primary" (click)="addAddress()">
+                Add More option+
+              </button>
+            </div>
+          </form>
           <hr />
         </div>
-        <!--single choice   -->
+
+
+
+
+        <!-- single choice question -->
+
         <div *ngIf="item === 'Single Choice Question'">
-          <!-- <label for="">Single Choice Anwser</label> <br> -->
           <div>
-            <!-- <label for="">Que: </label> -->
-            <input
-              [(ngModel)]="question.question"
-              type=" text"
-              placeholder="Enter Your Question"
-              [formControlName]="item[id]"
-            /><br />
-          </div>
-          <br />
-
-          <div>
-            <input type="radio" name="ch" id="" />
-            <input
-              [(ngModel)]="question.options"
-              type="text"
-              placeholder="Option"
-
-            />
-          </div>
-          <br />
-
-          <div>
-            <input type="radio" name="ch" id="" />
-            <input type="text" placeholder="Option" />
-          </div>
-          <hr />
-          <!-- <input type="radio" name="ch" id=""> Op 2 <br> -->
-          <!-- <input type="radio" name="ch" id=""> Op 3 -->
-        </div>
-        <!-- MCQ -->
-        <div *ngIf="item === 'Multiple Choice Question'">
-          <div>
-            <!-- <label for="">Que: </label> -->
-            <input
-              [(ngModel)]="question.question"
-              type=" text"
-              placeholder="Enter Your Question"
-              [formControlName]="item[id]"
-            /><br />
+            <input type=" text" placeholder="Enter Your Question" /> <br />
           </div>
           <br />
           <form class="example-form" [formGroup]="userForm">
@@ -86,10 +68,9 @@
               formArrayName="address"
             >
               <div class="form-group jumbotron" [formGroupName]="i">
-                
                 <div>
-                  <input type="checkbox" name="ch" id="" />
-                  <input #opt type="text" placeholder="Option" [value]="" />
+                  <input type="radio" name="ch" id="" />
+                  <input type="text" placeholder="Option" />
 
                   <button
                     *ngIf="i > 0"
@@ -98,10 +79,8 @@
                   >
                     Remove button
                   </button>
-                  <button
-                    *ngIf="i > 0" class="btn btn-primary float-start mb-1" (click)="pushInArray(opt)"> add button
-                  </button>
                 </div>
+                <br />
               </div>
             </div>
             <div class="form-row org-desc-parent-margin">
@@ -110,30 +89,48 @@
               </button>
             </div>
           </form>
-          <!-- <div>
-            <input type="checkbox" name="ch" id="" />
-            <input type="text" placeholder="Option" />
-          </div>
-          <br />
-          <div>
-            <input type="checkbox" name="ch" id="" />
-            <input type="text" placeholder="Option" />
-          </div>
-          <br />
-          <div>
-            <input type="checkbox" name="ch" id="" />
-            <input type="text" placeholder="Option" />
-          </div> -->
           <hr />
-          <!-- <label for="">Multiple Choice Question</label> <br> -->
-          <!-- <input type="checkbox" name="multiple" id="">Op 1 <br>
-            <input type="checkbox" name="multiple" id="">Op 1 <br>
-            <input type="checkbox" name="multiple" id="">Op 1 -->
+        </div>
+
+
+        <!-- Multiple choice question -->
+
+        <div *ngIf="item === 'Multiple Choice Question'">
+          <div>
+            <input type=" text" placeholder="Enter Your Question" /><br />
+          </div>
+          <br />
+          <form class="example-form" [formGroup]="userForm">
+            <div
+              class="address-container"
+              *ngFor="let group of addressArray.controls; let j = index"
+              formArrayName="address"
+            >
+              <div class="form-group jumbotron" [formGroupName]="j">
+                <div>
+                  <input type="checkbox" name="ch" id="" />
+                  <input type="text" placeholder="Option" />
+
+                  <button
+                    *ngIf="j > 0"
+                    class="btn btn-danger float-end mb-1"
+                    (click)="removeAddress(j)"
+                  >
+                    Remove button
+                  </button>
+                </div>
+                <br />
+              </div>
+            </div>
+            <div class="form-row org-desc-parent-margin">
+              <button class="btn btn-primary" (click)="addAddress()">
+                Add More option+
+              </button>
+            </div>
+          </form>
+          <hr />
         </div>
       </div>
     </div>
-    </div>
-
-    
   </div>
 </div>

@@ -1,10 +1,10 @@
-import "../model/Question"
-export class Survey{
-    questions : []
+// import "../model/Question"
+// export class Survey{
+//     questions : []
 
-    constructor(questions:[]){
-        this.questions = questions
-    }
+//     constructor(questions:[]){
+//         this.questions = questions
+//     }
 
 
-}
+// }
