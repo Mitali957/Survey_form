@@ -2,9 +2,15 @@
   margin: 0;
   padding: 0;
 }
+.h2{
+  justify-content: center;
+  text-align: center;
+  margin-top:10px;
+  margin-bottom:-2px;
+}
 
 .toolbar{
-  background-color: rgb(83, 97, 120);
+  background-color: #bdcddc;
   text-decoration: solid;
   color:azure;
   padding-top: 15px;
@@ -21,6 +27,7 @@
     background-color: rgb(188, 188, 188);
     // jutsify-content: center;
     // text-align: center;
+    border-radius:5px;
 
   }
   
@@ -78,8 +85,19 @@
   }
 
   .fullPage{
-    background-color: rgb(157, 133, 186);
+    background-color: #b3d9ff;
     padding-bottom: 280px;
+  }
+  .deletebtn{
+    margin-left: 8em;
+    padding:3px;
+    border-radius: 1px;
+  }
+  .addbtn{
+    align-items: end;
+    padding:3px;
+    border-radius: 1px;
+    margin:9px;
   }
 
 

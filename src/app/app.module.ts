@@ -17,6 +17,9 @@ import { LoaderComponent } from './loader/loader.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldControl } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -27,6 +30,8 @@ import { HeaderComponent } from './header/header.component';
     MainPageComponent,
     LoaderComponent,
     HeaderComponent,
+    
+    
   
     
   ],
@@ -38,7 +43,9 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     DragDropModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule
     
   ],
   exports:[],

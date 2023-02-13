@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, copyArrayItem} from '@angular/cdk/drag-drop';
 import { FormBuilder,FormGroup, FormArray,FormControl, RequiredValidator, Validators, FormsModule } from '@angular/forms';
-
+import { MatFormFieldControl } from '@angular/material/form-field';
+import { MatFormField } from '@angular/material/form-field';
 import { HttpClient } from '@angular/common/http';
 // import {Survey}  from  "../model/Survey";
 // import {Question} from "../model/Question";
@@ -14,27 +15,38 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class MainPageComponent {
- 
-  components = ['Text Area', 'Single Choice Question', 'Multiple Choice Question'];
-  // survey = new Survey([])
-  // question = new Question("", "", [])
-  
-  // pushInArray(option:any){
-  //   this.question.options.push(option.value)
-  //   option.value = ""
-  // }
-  // InputValue:string;
+  questionControl = new FormControl('');
+  answerControl = new FormControl('');
 
-  // logInputValue(){
-  //   console.log(this.InputValue);
-  // }
-  Form = [ 'Check e-mail'];
-
-
-  onDelete(deleteMe:any){
-    this.Form.splice(deleteMe, 1)
+  getValue() {
+    console.log('Question: ', this.questionControl.value);
+    console.log('Answer: ', this.answerControl.value);
+    return {
+      question: this.questionControl.value,
+      answer: this.answerControl.value,
+    };
   }
-
+  components = ['Text Area', 'Single Choice Question', 'Multiple Choice Question'];
+  // components=[
+  //   { 
+  //     type: 'text'
+  //   }
+  // ]
+  surveyform=[
+    {
+      type:'',
+      quest:'Text Area'
+    },
+    {
+      type:'',
+      quest:'Single Choice Question'
+    },
+    {
+      type:'',
+      quest:'Multiple Choice Question'
+    }
+  ]
+  Form = [ 'Check e-mail'];
 drop(event: CdkDragDrop<string[]>) {
   if (event.previousContainer === event.container) {
     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -64,9 +76,9 @@ public userForm: FormGroup;
   //Append Fields Set
   private addAddressGroup(): FormGroup {
     return this._fb.group({
-      // ques: [],
-      // type: [],
-      // option: []
+      ques: [],
+      type: [],
+      option: []
     });
   }
   //Add Fields
@@ -82,54 +94,19 @@ public userForm: FormGroup;
     return <FormArray>this.userForm.get('address');
   }
 
-  
+  onDelete(item: any): void {
+    this.addressArray.removeAt(item);
+  }
 
+  onSave(){
+    // console.log(this.surveyform)
+      // localStorage.setItem(data);
 
-  
+      const data = JSON.parse(localStorage.getItem('data') || '{}');    
+      localStorage.setItem('key', JSON.stringify(this.surveyform));
+           console.log(this.surveyform)
 
-  
-
-
-
-
-
-
-
-
-
-
-
-  // sayhi(){
-  //   console.log(this.inputValue)
-  //   console.log('hiii')
-  // }
-
-
-//  public surveyForm = new FormGroup({
-//     title : new FormControl(''),
-//     email: new FormControl(''),
-//     questions :new FormControl({
-//         question: new FormControl({
-//           promt : new FormControl(""),
-//           type : new FormControl(""),
-//           options : new FormControl({
-//              option : new FormControl("")
-//           })
-//         })
-//     })
-    
-//   })
-
-  
-
-  // patch(){
-  //   const control = <FormArray>this.userForm.get('surveyForm.questions');
-  // this.surveyForm.questions.array.forEach(element => {
-    
-  // });   orEach(x => {
-  //   control.push(this.patchValues(x.label, x.value))
-  // });
-  // }
+  }
 
 }
 

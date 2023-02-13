@@ -7,7 +7,8 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent {
-public readonly text='Survey'.split('');
+public readonly text='SURVEY'.split('');
+
 public readonly lastIndex= this.text.length -1;
 public readonly duration=2;
 public readonly delay= (this.duration *.5) /this.lastIndex;
