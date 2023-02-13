@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, copyArrayItem} from '@angular/cdk/drag-drop';
-import { FormBuilder,FormGroup, FormArray,FormControl, RequiredValidator, Validators } from '@angular/forms';
+import { FormBuilder,FormGroup, FormArray,FormControl, RequiredValidator, Validators, FormsModule } from '@angular/forms';
+
 import { HttpClient } from '@angular/common/http';
 // import {Survey}  from  "../model/Survey";
 // import {Question} from "../model/Question";
@@ -8,7 +9,10 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
+
+
 })
+
 export class MainPageComponent {
  
   components = ['Text Area', 'Single Choice Question', 'Multiple Choice Question'];
@@ -19,9 +23,13 @@ export class MainPageComponent {
   //   this.question.options.push(option.value)
   //   option.value = ""
   // }
+  // InputValue:string;
 
-
+  // logInputValue(){
+  //   console.log(this.InputValue);
+  // }
   Form = [ 'Check e-mail'];
+
 
   onDelete(deleteMe:any){
     this.Form.splice(deleteMe, 1)
@@ -56,16 +64,15 @@ public userForm: FormGroup;
   //Append Fields Set
   private addAddressGroup(): FormGroup {
     return this._fb.group({
-      street: [],
-      city: [],
-      state: []
+      // ques: [],
+      // type: [],
+      // option: []
     });
   }
   //Add Fields
   addAddress(): void {
     this.addressArray.push(this.addAddressGroup());
   }
- 
   //Remove Fields
   removeAddress(index: number): void {
     this.addressArray.removeAt(index);
@@ -75,21 +82,43 @@ public userForm: FormGroup;
     return <FormArray>this.userForm.get('address');
   }
 
+  
 
- public surveyForm = new FormGroup({
-    title : new FormControl(''),
-    email: new FormControl(''),
-    questions :new FormControl({
-        question: new FormControl({
-          promt : new FormControl(""),
-          type : new FormControl(""),
-          options : new FormControl({
-             option : new FormControl("")
-          })
-        })
-    })
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  // sayhi(){
+  //   console.log(this.inputValue)
+  //   console.log('hiii')
+  // }
+
+
+//  public surveyForm = new FormGroup({
+//     title : new FormControl(''),
+//     email: new FormControl(''),
+//     questions :new FormControl({
+//         question: new FormControl({
+//           promt : new FormControl(""),
+//           type : new FormControl(""),
+//           options : new FormControl({
+//              option : new FormControl("")
+//           })
+//         })
+//     })
     
-  })
+//   })
 
   
 

@@ -13,6 +13,8 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { SurveyModule } from './survey/survey.module';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { LoaderComponent } from './loader/loader.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import {MatButtonModule} from '@angular/material/button';
     RegisterComponent,
     SigninComponent,
     MainPageComponent,
+    LoaderComponent,
   
     
   ],
@@ -30,7 +33,7 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     HttpClientModule,
     DragDropModule,
-   
+    
   ],
   exports:[],
   providers: [],

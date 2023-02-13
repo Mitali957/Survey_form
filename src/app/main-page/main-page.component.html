@@ -1,22 +1,22 @@
-<div cdkDropListGroup>
+
+<!-- <div style="background-color: #85adad;" > -->
+
+<div cdkDropListGroup class="fullPage">
   <div class="example-container">
     <h2>components</h2>
     <div cdkDropList [cdkDropListData]="components" class="example-list">
-      <div class="example-box" *ngFor="let item of components" cdkDrag>
-        {{ item }}
+      <div class=" item example-box" *ngFor="let item of components" cdkDrag>
+        {{item}}
       </div>
     </div>
   </div>
-
   <div class="example-container">
     <h2>Form</h2>
-    <div
+    <div 
       cdkDropList
       [cdkDropListData]="Form"
       class="example-list"
       (cdkDropListDropped)="drop($event)">
-
-
       <!-- Text Area -->
       <div *ngFor="let item of Form" cdkDrag>
         <div *ngIf="item === 'Text Area'">
@@ -50,9 +50,6 @@
           </form>
           <hr />
         </div>
-
-
-
 
         <!-- single choice question -->
 
@@ -128,9 +125,11 @@
               </button>
             </div>
           </form>
-          <hr />
+          <hr/>
         </div>
       </div>
     </div>
   </div>
 </div>
+<!-- </div> -->
+
