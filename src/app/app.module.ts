@@ -14,6 +14,9 @@ import { SurveyModule } from './survey/survey.module';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { LoaderComponent } from './loader/loader.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -23,6 +26,7 @@ import { LoaderComponent } from './loader/loader.component';
     SigninComponent,
     MainPageComponent,
     LoaderComponent,
+    HeaderComponent,
   
     
   ],
@@ -33,6 +37,8 @@ import { LoaderComponent } from './loader/loader.component';
     FormsModule,
     HttpClientModule,
     DragDropModule,
+    BrowserAnimationsModule,
+    MatToolbarModule
     
   ],
   exports:[],

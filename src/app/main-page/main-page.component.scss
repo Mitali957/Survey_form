@@ -2,10 +2,18 @@
   margin: 0;
   padding: 0;
 }
+
+.toolbar{
+  background-color: rgb(83, 97, 120);
+  text-decoration: solid;
+  color:azure;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 .example-container {
     width: 400px;
     max-width: 100%;
-    margin: 50px 50px ;
+    margin: 50px ;
     display: inline-block;
     vertical-align: top;
     margin-bottom: 100px;
@@ -66,7 +74,6 @@
   .address-container{
     justify-content: center;
     align-items:center;
-  
 
   }
 

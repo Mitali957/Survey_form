@@ -1,8 +1,9 @@
-
-<!-- <div style="background-color: #85adad;" > -->
+<app-header></app-header>
 
 <div cdkDropListGroup class="fullPage">
+  
   <div class="example-container">
+    
     <h2>components</h2>
     <div cdkDropList [cdkDropListData]="components" class="example-list">
       <div class=" item example-box" *ngFor="let item of components" cdkDrag>
@@ -30,7 +31,6 @@
               <div class="form-group jumbotron" [formGroupName]="i">
                 <div>
                   <input type="text" placeholder="Enter Your Question" />
-
                   <button
                     *ngIf="i > 0"
                     class="btn btn-danger float-end mb-1"
@@ -49,7 +49,7 @@
             </div>
           </form>
           <hr />
-        </div>
+        </div><br>
 
         <!-- single choice question -->
 
@@ -86,7 +86,7 @@
               </button>
             </div>
           </form>
-          <hr />
+          <hr/>
         </div>
 
 
@@ -94,7 +94,7 @@
 
         <div *ngIf="item === 'Multiple Choice Question'">
           <div>
-            <input type=" text" placeholder="Enter Your Question" /><br />
+            <input class="" type=" text" placeholder="Enter Your Question" /><br />
           </div>
           <br />
           <form class="example-form" [formGroup]="userForm">
